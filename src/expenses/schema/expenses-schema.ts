@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { IsNotEmpty, IsNumber, IsString, Max, min, Min } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString, Max, Min } from 'class-validator';
 
 @Schema({ timestamps: true })
 export class Expense {
@@ -8,7 +8,7 @@ export class Expense {
   @IsString()
   model: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, index: true })
   @IsNotEmpty()
   @IsNumber()
   @Min(1000)
